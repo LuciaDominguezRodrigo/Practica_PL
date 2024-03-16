@@ -1,4 +1,4 @@
-// Generated from C:/Users/marco/Documents/GitHub/Practica_PL/PracticaObligatoria/src/Translator.g4 by ANTLR 4.13.1
+// Generated from C:/Users/Jorge/Documents/Jorge/URJC/3º/Procesadores de Lenguajes/Practica_PL/PracticaObligatoria/src/Translator.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**

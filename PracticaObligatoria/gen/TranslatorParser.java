@@ -1,4 +1,4 @@
-// Generated from C:/Users/marco/Documents/GitHub/Practica_PL/PracticaObligatoria/src/Translator.g4 by ANTLR 4.13.1
+// Generated from C:/Users/Jorge/Documents/Jorge/URJC/3º/Procesadores de Lenguajes/Practica_PL/PracticaObligatoria/src/Translator.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -16,7 +16,8 @@ public class TranslatorParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		REAL=1, NATURAL=2, IGNORE=3;
+		WS=1, IDENT=2, DEC_DIGIT=3, OCT_DIGIT=4, HEX_DIGIT=5, DEC_INT=6, OCT_INT=7, 
+		HEX_INT=8, CONSTINT=9, DEC_REAL=10, OCT_REAL=11, HEX_REAL=12, CONSTFLOAT=13;
 	public static final int
 		RULE_axioma = 0;
 	private static String[] makeRuleNames() {
@@ -33,7 +34,9 @@ public class TranslatorParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "REAL", "NATURAL", "IGNORE"
+			null, "WS", "IDENT", "DEC_DIGIT", "OCT_DIGIT", "HEX_DIGIT", "DEC_INT", 
+			"OCT_INT", "HEX_INT", "CONSTINT", "DEC_REAL", "OCT_REAL", "HEX_REAL", 
+			"CONSTFLOAT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -89,13 +92,17 @@ public class TranslatorParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AxiomaContext extends ParserRuleContext {
-		public List<TerminalNode> REAL() { return getTokens(TranslatorParser.REAL); }
-		public TerminalNode REAL(int i) {
-			return getToken(TranslatorParser.REAL, i);
+		public List<TerminalNode> IDENT() { return getTokens(TranslatorParser.IDENT); }
+		public TerminalNode IDENT(int i) {
+			return getToken(TranslatorParser.IDENT, i);
 		}
-		public List<TerminalNode> NATURAL() { return getTokens(TranslatorParser.NATURAL); }
-		public TerminalNode NATURAL(int i) {
-			return getToken(TranslatorParser.NATURAL, i);
+		public List<TerminalNode> CONSTINT() { return getTokens(TranslatorParser.CONSTINT); }
+		public TerminalNode CONSTINT(int i) {
+			return getToken(TranslatorParser.CONSTINT, i);
+		}
+		public List<TerminalNode> CONSTFLOAT() { return getTokens(TranslatorParser.CONSTFLOAT); }
+		public TerminalNode CONSTFLOAT(int i) {
+			return getToken(TranslatorParser.CONSTFLOAT, i);
 		}
 		public AxiomaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -131,7 +138,7 @@ public class TranslatorParser extends Parser {
 				{
 				setState(2);
 				_la = _input.LA(1);
-				if ( !(_la==REAL || _la==NATURAL) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 8708L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -144,7 +151,7 @@ public class TranslatorParser extends Parser {
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==REAL || _la==NATURAL );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 8708L) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -159,13 +166,13 @@ public class TranslatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0003\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
+		"\u0004\u0001\r\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
 		"\b\u0000\u000b\u0000\f\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0000"+
-		"\u0000\u0001\u0001\u0000\u0001\u0002\u0007\u0000\u0003\u0001\u0000\u0000"+
-		"\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001\u0000\u0000"+
-		"\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001\u0000\u0000"+
-		"\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001\u0000\u0000"+
-		"\u0000\u0001\u0005";
+		"\u0000\u0001\u0003\u0000\u0002\u0002\t\t\r\r\u0007\u0000\u0003\u0001\u0000"+
+		"\u0000\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001\u0000"+
+		"\u0000\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001\u0000"+
+		"\u0000\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001\u0000"+
+		"\u0000\u0000\u0001\u0005";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
