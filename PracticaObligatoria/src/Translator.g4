@@ -1,7 +1,8 @@
 grammar Translator;
-axioma : (IDENT | CONSTINT | CONSTFLOAT|COMMENT_LINE|COMMENT_MULTILINE)+;
+axioma : (IDENT | CONSTINT | CONSTFLOAT | COMMENT_LINE | COMMENT_MULTILINE)+;
 
 WS : [\n\r\t] -> skip;
+SPACE : ' ';
 
 IDENT : [a-zA-Z$] [a-zA-Z0-9$_]* WS* {System.out.println("<IDENT>");};
 
