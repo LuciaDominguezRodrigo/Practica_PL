@@ -1,7 +1,7 @@
 grammar Translator;
-axioma : (IDENT | CONSTINT | CONSTFLOAT)+;
+axioma : (IDENT | CONSTINT | CONSTFLOAT|COMMENT_LINE|COMMENT_MULTILINE)+;
 
-WS : [\n\r\t];
+WS : [\n\r\t] -> skip;
 
 IDENT : [a-zA-Z$] [a-zA-Z0-9$_]* WS* {System.out.println("<IDENT>");};
 
@@ -20,3 +20,10 @@ OCT_REAL : OCT_INT '.' OCT_DIGIT+;
 HEX_REAL : HEX_INT '.' HEX_DIGIT+;
 
 CONSTFLOAT : (DEC_REAL | OCT_REAL | HEX_REAL) WS* {System.out.println("<CONSTFLOAT>");};
+
+// Comentarios de una línea
+COMMENT_LINE : '//' ~[\r\n]* {System.out.println("(* " + getText().substring(2) + " *)");};
+
+// Comentarios multilínea
+COMMENT_MULTILINE : '/*' .*? '*/'{System.out.println("(* " + getText().substring(2, getText().length() - 2) + " *)");};
+
