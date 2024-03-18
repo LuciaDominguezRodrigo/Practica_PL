@@ -22,7 +22,7 @@ HEX_REAL : HEX_INT '.' HEX_DIGIT+;
 CONSTFLOAT : (DEC_REAL | OCT_REAL | HEX_REAL) WS* {System.out.println("<CONSTFLOAT>");};
 
 // Comentarios de una línea
-COMMENT_LINE : '//' ~[\r\n]* -> skip;
+COMMENT_LINE : '//' ~[\r\n]* WS*;
 
 // Comentarios multilínea
-COMMENT_MULTILINE : '/*' .*? '*/' -> skip;
+COMMENT_MULTILINE : '/*' .*? '*/' WS*;
