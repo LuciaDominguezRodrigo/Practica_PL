@@ -12,3 +12,10 @@ d3_$
    caracola
  */
 0x32Fd1.12
+'hello w \''
+'contenido de la constante literal'
+'constante literal con \'contenido\'
+entrecomillado'
+0x321
+
+

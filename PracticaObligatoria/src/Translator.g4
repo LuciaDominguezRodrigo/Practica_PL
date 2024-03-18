@@ -1,5 +1,5 @@
 grammar Translator;
-axioma : (IDENT | CONSTINT | CONSTFLOAT | COMMENT_LINE | COMMENT_MULTILINE)+;
+axioma : (IDENT | CONSTINT | CONSTFLOAT | CONSTLIT | COMMENT_LINE | COMMENT_MULTILINE)+;
 
 WS : [\n\r\t] -> skip;
 SPACE : ' ';
@@ -21,6 +21,8 @@ OCT_REAL : OCT_INT '.' OCT_DIGIT+;
 HEX_REAL : HEX_INT '.' HEX_DIGIT+;
 
 CONSTFLOAT : (DEC_REAL | OCT_REAL | HEX_REAL) WS* {System.out.println("<CONSTFLOAT>");};
+
+CONSTLIT : '\'' ( ~['] | ('\\' [']))* '\'' WS* {System.out.println("<CONSTLIT>");};
 
 // Comentarios de una línea
 COMMENT_LINE : '//' ~[\r\n]* WS*;
