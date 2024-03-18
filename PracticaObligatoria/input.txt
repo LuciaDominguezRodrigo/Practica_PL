@@ -7,5 +7,3 @@ d3_$
 0x32Fd1.12
 0235.1
 043
-'contenido de la constante literal'
-'constante literal con \'contenido\' entrecomillado'

@@ -1,8 +1,7 @@
 grammar Translator;
-axioma : (IDENT | CONSTINT | CONSTFLOAT | CONSTLIT)+;
+axioma : (IDENT | CONSTINT | CONSTFLOAT)+;
 
 WS : [\n\r\t];
-SPACE: ' ';
 
 IDENT : [a-zA-Z$] [a-zA-Z0-9$_]* WS* {System.out.println("<IDENT>");};
 
@@ -21,7 +20,3 @@ OCT_REAL : OCT_INT '.' OCT_DIGIT+;
 HEX_REAL : HEX_INT '.' HEX_DIGIT+;
 
 CONSTFLOAT : (DEC_REAL | OCT_REAL | HEX_REAL) WS* {System.out.println("<CONSTFLOAT>");};
-
-CONSTLIT : '\'' (~[\n\r\t] | '\'')+ '\'' {System.out.println("<CONSTLIT>");};
-
-ENDOFLINE: '\r\n' -> skip;
